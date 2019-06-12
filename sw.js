@@ -3,7 +3,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 console.log('Hello Service Worker!');
 
 workbox.routing.registerRoute( // Cache the app shell
-  /^https:\/\/jmcriffey\.github\.io\/progressive-web-app\//, // RegExp checks fetch requests 
+  /\//, // RegExp checks fetch requests 
   new workbox.strategies.CacheFirst({ // Pick a caching strategy
     cacheName: 'progressive-web-app' // Give a unique name to the cache
   })
