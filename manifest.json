@@ -1,0 +1,22 @@
+{
+  "background_color": "#ffffff",
+  "description": "A PWA that is quite cool.",
+  "display": "standalone",
+  "name": "Cool PWA",
+  "orientation": "any",
+  "short_name": "CoolPWA",
+  "start_url": "/progressive-web-app",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "./images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }   
+  ]
+}
