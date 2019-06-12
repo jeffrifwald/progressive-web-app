@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-   <title>Progressive Web App Example</title>
-   <link rel="manifest" href="./manifest.json" />
- </head>
- <body>
-  <h1>HELLO PWA!</h1>
- </body>
+  <head>
+    <title>Progressive Web App Example</title>
+    <link rel="manifest" href="./manifest.json" />
+    <script>
+      (() => {
+        // Old browsers do not support service workers
+        if (typeof navigator === 'undefined' || typeof navigator.serviceWorker === 'undefined') {
+          return;
+        }  
+
+        // Register the service worker
+        navigator.serviceWorker.register('sw.js')
+          .then(() => {
+            console.log('The service worker has registered!');
+          })
+          .catch((err) => {
+            console.error('The service worker could not be registered!');
+            console.error(err);
+          });
+      })();
+    </script>
+  </head>
+  <body>
+    <h1>HELLO PWA!</h1>
+  </body>
 </html>
