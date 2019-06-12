@@ -2,14 +2,21 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox
 
 console.log('Hello Service Worker!');
 
-workbox.routing.registerRoute( // Cache a route
-  /^https:\/\/fonts\.googleapis\.com/, // RegExp checks fetch requests 
-  new workbox.strategies.StaleWhileRevalidate({ // Pick a caching strategy
-    cacheName: 'google-fonts-stylesheets', // Give a unique name to the cache
+workbox.routing.registerRoute( // Cache the app shell
+  /^https:\/\/jmcriffey\.github\.io\/progressive-web-app\//, // RegExp checks fetch requests 
+  new workbox.strategies.CacheFirst({ // Pick a caching strategy
+    cacheName: 'progressive-web-app' // Give a unique name to the cache
+  })
+);
+
+workbox.routing.registerRoute( // Cache google fonts
+  /^https:\/\/fonts\.googleapis\.com/, 
+  new workbox.strategies.StaleWhileRevalidate({ 
+    cacheName: 'google-fonts-stylesheets',
     plugins: [
       new workbox.expiration.Plugin({ // Manage cache expiration
         maxEntries: 10, // Only allow 10 responses in the cache
-        maxAgeSeconds: 60 * 60 * 24 * 14 // Cache for 14 days
+        maxAgeSeconds: 60 * 60 * 24 * 30 // Cache for 30 days
       })
     ]
   })
