@@ -5,7 +5,7 @@
   "name": "Cool PWA",
   "orientation": "any",
   "short_name": "CoolPWA",
-  "start_url": "/progressive-web-app",
+  "start_url": "/",
   "theme_color": "#d3a809",
   "icons": [
     {
