@@ -11,7 +11,7 @@ workbox.routing.registerRoute( // Cache the app shell
 
 workbox.routing.registerRoute( // Cache google fonts
   /^https:\/\/fonts\.googleapis\.com/, 
-  new workbox.strategies.CacheFirst({ 
+  new workbox.strategies.StaleWhileRevalidate({ 
     cacheName: 'google-fonts-stylesheets',
     plugins: [
       new workbox.expiration.Plugin({ // Manage cache expiration
